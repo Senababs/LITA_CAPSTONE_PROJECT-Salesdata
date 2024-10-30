@@ -21,7 +21,7 @@ Project Objectives
 - Identify regions with the highest sales volume.
 - Analyze customer purchasing patterns.
 - Evaluate pricing strategies.
-- Understand seasonal trends within each quarter of 2023 and 2024
+- Understand seasonal trends within each month of 2023 and 2024
 
 ## Data Source and Methodology
 Dataset was provided by Incubator hub instructors. 
@@ -41,16 +41,51 @@ Dataset was provided by Incubator hub instructors.
    - Analytical tools: Download link on other repository
        - Microsoft Excel (Ms Excel)
          - Data cleaning
-          -Revenue column was added and calculated using this function 
+          -Revenue column was added and calculated using this function
+ 
+                =Revenue (Unit Price * Quantity)
+       - Pivot table was used to summarise total sals by product, region and month.
+        - Metrics such as Average sales per product and total revenue by region where calculated
+          - Example for Average sales of shirt:
+ 
+                     =AVERAGEIFS(H2:H9922, C2:C9922,M6)
+ 
+          - And Total revenue for East region
 
-               =Product (Unit Price * Quantity)
-
-
-
-
-
+                 =SUMIFS(H2:H9922, D2:D9922,M16)
 
       - Structured Query Language (SQL)
-      - Power Business intelligence (Power Bi).
+          - The dataset was converted to Comma seperated values to load into the SQL server
+          - The following queries were written to analyse the sales performance
+              - 1. Retrieve the total sales for each product category.
 
+                        select Product, sum(Revenue) as Total_sales from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] Group by Product
+                2. Find the number of sales transcations in each region.
+
+                        select Region, count(Orderid) as Number_of_sales_transaction from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] group by Region
+                3. Find the highest selling product by total sales value.
+               
+                          select top 1 Product, sum(quantity) as Total_sales  from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] Group by Product order by sum(quantity) desc
+                4. Calculate total revenue per product
+            
+                       select Product, sum(Revenue) as Total_revenue from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] group by product
+                5. Find the top 5 customers by total purchase amount
+
+                        select top 5 Customer_id, sum(revenue) as Total_Purchase_Amount from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] Group by customer_id order by sum(revenue) desc
+                6. Calculate monthly sales totals for the current year
+
+                        Select FORMAT(OrderDate, 'MM-2024') as Month, sum(Revenue) as Monthly_sales from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] where year(OrderDate) =2024 group by FORMAT(OrderDate, 'MM-2024') ORDER BY Month
+                7. Calculate the percentage of total sales contributed by each region
+
+                        select region, sum(Quantity) as total_sales, (sum(quantity) * 100.0 / (select sum(quantity) from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA])) as Percentage_regional_sales from  [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] Group by Region 
+
+                8. Identify products with no sales in the last quarter
+ 
+                               select distinct product from  [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] Where  Product not in (select Product  from [dbo].[LITA CAPSTONE_PROJECT_SALESDATA] where OrderDate >= '2024-10-01' and OrderDate < '2025-01-01');
+      - Power Business intelligence (Power Bi).
+           - For creation of dashboard that visualizes the insights found in excel and SQL
+           - The dashboard include sales overview, top performing products, regional and yearly breakdown
+## Analytical Result
+   - Data Visualization
+     
 
