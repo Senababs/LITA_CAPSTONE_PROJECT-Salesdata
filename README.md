@@ -1,3 +1,5 @@
+![20241027_182630](https://github.com/user-attachments/assets/3fe9e5a3-0837-4ee1-9928-a0b930ae49e6)
+![20241027_182951](https://github.com/user-attachments/assets/51db4c12-c4ca-4e1c-a802-b804eb0a0c9e)
 ## LITA_CAPSTONE_PROJECT 1
 
 ## Project Title: Sales Data
