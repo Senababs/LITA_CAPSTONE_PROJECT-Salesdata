@@ -95,12 +95,8 @@ Dataset was provided by Incubator hub instructors.
 
 
 - Data observation
-  -
       - *Product Performance*: It was observed that the "Shoes" product immediately before the 'Hat' product (The highest selling product by units sold), stands out as the top-selling product by revenue. This can be attributed to its widespread appeal across three out of the four regions, while other products are limited to one or two regions. With the 'Jacket' product being the second and least performing products.
-      - 
       - *Region Performance*: The South region emerges as the highest-performing region in terms of revenue. However, it's noteworthy that only three products are consumed by customers in this region. Whereas customers in the West region consume 4 of the products still it is the least performing region by revenue.
-
-  ![20241027_154427](https://github.com/user-attachments/assets/f7e751ee-76ed-4ed6-8777-d85136414def)
       - *Yearly trend*: A higher overall revenue has been observed in 2023 compared to 2024, although 2024 Orderdate stops in the month of May. Also it was quite noticeable that these products were highly consumed in certain of each year. For example: The product 'Gloves' sold more in the month of June & December 2023 also in June 2024.
      
    - Key Suggestion
